@@ -5,6 +5,7 @@
     name:
       - build-essential
       - cmake
+      - dnsutils
       - curl
       - golang
       - liquidprompt
