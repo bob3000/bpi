@@ -1,0 +1,4 @@
+---
+- import_playbook: common
+- import_playbook: docker
+- import_playbook: dotfiles

@@ -1,0 +1,14 @@
+---
+- name: install packages
+  apt:
+    update_cache: yes
+    upgrade: full
+    name:
+      - build-essentials
+      - cmake
+      - curl
+      - unzip
+      - neovim
+      - liquidprompt
+      - golang
+      - linux-headers-{{ ansible_kernel }}

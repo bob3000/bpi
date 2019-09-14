@@ -1,0 +1,9 @@
+---
+- name: install Docker
+  shell: which docker || curl -sSL https://get.docker.com | sh
+
+- name: add user to docker group
+  user:
+    name: pi
+    append: true
+    groups: docker
