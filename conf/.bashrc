@@ -51,6 +51,9 @@ alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 if [ -f /home/linuxbrew/.linuxbrew/share/liquidprompt ]; then
     . /home/linuxbrew/.linuxbrew/share/liquidprompt
 fi
+if [ -f /usr/share/liquidprompt/liquidprompt ]; then
+    . /usr/share/liquidprompt/liquidprompt
+fi
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -61,8 +64,10 @@ complete -C aws_completer aws
 test -e "${HOME}/.credentials" && source "${HOME}/.credentials"
 
 # linuxbrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
-export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
-export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib/pkgconfig"
+if [ -f /home/linuxbrew/.linuxbrew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
+    export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
+    export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib/pkgconfig"
+fi
 
