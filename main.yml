@@ -1,4 +1,3 @@
 ---
-- import_playbook: common
-- import_playbook: docker
-- import_playbook: dotfiles
+- import_playbook: common.yml
+- import_playbook: dotfiles.yml
